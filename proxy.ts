@@ -3,7 +3,7 @@ import { updateSession } from '@/lib/supabase/middleware'
 
 const PUBLIC_PATHS = ['/', '/login', '/signup']
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (PUBLIC_PATHS.includes(request.nextUrl.pathname)) {
     return NextResponse.next({ request })
   }
